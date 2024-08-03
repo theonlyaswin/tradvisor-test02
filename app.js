@@ -11,6 +11,16 @@ const border = document.querySelector(".border");
 let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
 
+document.addEventListener('DOMContentLoaded', function () {
+    const splashScreen = document.querySelector('.splash-screen');
+    
+    // Simulate a loading process
+    setTimeout(() => {
+        splashScreen.classList.add('hide-splash');
+    }, 2000); // Hide after 2 seconds, adjust as needed
+});
+
+
 
 
 const counters = document.querySelectorAll('.count');
