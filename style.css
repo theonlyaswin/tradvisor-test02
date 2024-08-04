@@ -61,7 +61,7 @@ header {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background-image: url(img/bg.jpg);
+    background: url("https://images.pexels.com/photos/3727262/pexels-photo-3727262.jpeg");
     background-size: cover;
 }
 
@@ -131,6 +131,7 @@ nav .container {
 }
 
 .big-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.308);
     position: absolute;
     z-index: 30;
     line-height: 4rem;
@@ -192,11 +193,9 @@ nav .container {
     right: 0;
     bottom: 0;
     left: 50%;
-    background-image: url('img/img-1.jpg');
+    background: url('https://images.pexels.com/photos/3873672/pexels-photo-3873672.jpeg');
     background-size: cover;
     background-position: center;
-    filter: blur(5px);
-    opacity: 0.3;
     z-index: 1;
 }
 
@@ -210,6 +209,7 @@ nav .container {
 }
 
 .tradvisor h2 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.308);
     color: #ffffff;
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -219,7 +219,8 @@ nav .container {
 }
 
 .tradvisor p {
-    color: #d0d0d0;
+    
+    color: #ffffff;
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: left;
@@ -292,8 +293,8 @@ nav .container {
 
 
 .about {
-    background-image: url('img/img-2.jpg');
-        background-size: cover;
+    background: url('https://images.pexels.com/photos/17346705/pexels-photo-17346705/free-photo-of-sea-coast-of-monaco.jpeg');
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -307,6 +308,7 @@ nav .container {
 }
 
 .about h2 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.308);
     color: white;
     font-size: 2.5rem;
     margin-bottom: 40px;
@@ -320,6 +322,7 @@ nav .container {
 }
 
 .about p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.308);
     color: white;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -340,7 +343,7 @@ nav .container {
 
 .our-services {
     position: relative;
-    background-image: url('img/image.png');
+    background: url('https://images.pexels.com/photos/2086765/pexels-photo-2086765.jpeg');
     background-size: cover;
     background-position: center;
     padding: 80px 0;
@@ -353,7 +356,7 @@ nav .container {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.26);
 }
 
 .our-services .container {
@@ -732,7 +735,6 @@ footer p {
     
             .tradvisor::after {
                 left: 0;
-                opacity: 0.1;
             }
 
 

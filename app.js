@@ -13,14 +13,52 @@ let section_height = section.offsetHeight;
 
 document.addEventListener('DOMContentLoaded', function () {
     const splashScreen = document.querySelector('.splash-screen');
-    
-    // Simulate a loading process
-    setTimeout(() => {
-        splashScreen.classList.add('hide-splash');
-    }, 2000); // Hide after 2 seconds, adjust as needed
+    const imagesToPreload = [
+        'https://images.pexels.com/photos/3727262/pexels-photo-3727262.jpeg',
+        'https://images.pexels.com/photos/3873672/pexels-photo-3873672.jpeg',
+        'https://images.pexels.com/photos/17346705/pexels-photo-17346705/free-photo-of-sea-coast-of-monaco.jpeg',
+        'https://images.pexels.com/photos/2086765/pexels-photo-2086765.jpeg'
+    ];
+
+    let imagesLoaded = 0;
+
+    function preloadImage(url) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                imagesLoaded++;
+                updateLoadingProgress();
+                resolve();
+            };
+            img.onerror = reject;
+            img.src = url;
+        });
+    }
+
+    function updateLoadingProgress() {
+        const progress = (imagesLoaded / imagesToPreload.length) * 100;
+        // You can update a progress bar here if you want to show loading progress
+        console.log(`Loading progress: ${progress}%`);
+    }
+
+    function preloadImages() {
+        return Promise.all(imagesToPreload.map(preloadImage));
+    }
+
+    preloadImages()
+        .then(() => {
+            console.log('All images preloaded');
+            // Hide splash screen after all images are loaded
+            setTimeout(() => {
+                splashScreen.classList.add('hide-splash');
+            }, 500); // Short delay for smooth transition
+        })
+        .catch(error => {
+            console.error('Error preloading images:', error);
+            // Hide splash screen even if there's an error
+            splashScreen.classList.add('hide-splash');
+        });
 });
-
-
 
 
 const counters = document.querySelectorAll('.count');
