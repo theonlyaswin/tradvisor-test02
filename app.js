@@ -11,34 +11,48 @@ const border = document.querySelector(".border");
 let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
 
-
 class Popup {
-    constructor(popupId, delay) {
+    constructor(popupId) {
         this.popup = document.getElementById(popupId);
-        this.delay = delay;
+        this.closeButton = document.getElementById('closePopup');
+        this.joinUsButton = document.getElementById('joinUsButton');
+
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        this.joinUsButton.addEventListener('click', () => this.show());
+        this.closeButton.addEventListener('click', () => this.hide());
     }
 
     show() {
-        setTimeout(() => {
-            this.popup.style.display = 'block';
-        }, this.delay);
+        this.popup.classList.add('show');
+        const video = this.popup.querySelector('video');
+        if (video) {
+            video.currentTime = 0;
+            video.play();
+        }
     }
 
     hide() {
-        this.popup.style.display = 'none';
+        this.popup.classList.remove('show');
+        const video = this.popup.querySelector('video');
+        if (video) {
+            video.pause();
+        }
     }
 }
 
-// Create a new Popup instance
-const myPopup = new Popup('popup', 5000);
-
-// Show the popup after the specified delay
-myPopup.show();
+// Initialize the popup
+document.addEventListener('DOMContentLoaded', () => {
+    const myPopup = new Popup('popup');
+});
 
 // Add event listener to close button
 document.getElementById('closePopup').addEventListener('click', () => {
     myPopup.hide();
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
