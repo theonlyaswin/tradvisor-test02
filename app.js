@@ -11,13 +11,44 @@ const border = document.querySelector(".border");
 let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
 
+
+class Popup {
+    constructor(popupId, delay) {
+        this.popup = document.getElementById(popupId);
+        this.delay = delay;
+    }
+
+    show() {
+        setTimeout(() => {
+            this.popup.style.display = 'block';
+        }, this.delay);
+    }
+
+    hide() {
+        this.popup.style.display = 'none';
+    }
+}
+
+// Create a new Popup instance
+const myPopup = new Popup('popup', 5000);
+
+// Show the popup after the specified delay
+myPopup.show();
+
+// Add event listener to close button
+document.getElementById('closePopup').addEventListener('click', () => {
+    myPopup.hide();
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const splashScreen = document.querySelector('.splash-screen');
     const imagesToPreload = [
         'https://images.pexels.com/photos/3727262/pexels-photo-3727262.jpeg',
         'https://images.pexels.com/photos/3873672/pexels-photo-3873672.jpeg',
         'https://images.pexels.com/photos/17346705/pexels-photo-17346705/free-photo-of-sea-coast-of-monaco.jpeg',
-        'https://images.pexels.com/photos/2086765/pexels-photo-2086765.jpeg'
+        'https://images.pexels.com/photos/2086765/pexels-photo-2086765.jpeg',
+        './img/invite.mp4'
     ];
 
     let imagesLoaded = 0;
